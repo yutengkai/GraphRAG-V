@@ -16,7 +16,7 @@ Microsoft’s GraphRAG tackles multi-hop reasoning by building an entity-relatio
 
 > **Key result (MultiHopRAG 2 556 Qs, Qwen-2.5-7B backend)**  
 > – Recall jumps from **37.9 % → 48.8 %** while accuracy rises four points over a strong vector RAG baseline.  
-> – Index builds in **≈ 5 min** (vs ≈ 3 h for GraphRAG) and all questions finish in **≈ 42 min** on a single A100【Table 1 & Table 2, p 8】 :contentReference[oaicite:1]{index=1}
+> – Index builds in **≈ 5 min** (vs ≈ 3 h for GraphRAG) and all questions finish in **≈ 42 min** on a single A100【Table 1 & Table 2, p 8
 
 ---
 
