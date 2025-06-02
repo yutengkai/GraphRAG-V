@@ -4,7 +4,19 @@
 ---
 
 ## 1  Why GraphRAG-V?
-*(unchanged — still includes the 37.9 → 48.8 % recall jump and 5-min index build)*
+
+Classic vector-store RAG excels at single-pass “needle” queries but stumbles when evidence is scattered across many documents.  
+Microsoft’s GraphRAG tackles multi-hop reasoning by building an entity-relation graph—but pays a heavy price in LLM extraction calls and graph construction time.
+
+**GraphRAG-V** shows the graph itself is unnecessary:
+
+* Treat every **600-token chunk** as a vector node.  
+* Apply the **VLouvain** community-detection algorithm directly on the embedding matrix—no edge list, no k-NN pruning.  
+* Summarise each community once; at query time fetch **local passages** *and* **global summaries** with two FAISS look-ups.
+
+> **Key result (MultiHopRAG 2 556 Qs, Qwen-2.5-7B backend)**  
+> – Recall jumps from **37.9 % → 48.8 %** while accuracy rises four points over a strong vector RAG baseline.  
+> – Index builds in **≈ 5 min** (vs ≈ 3 h for GraphRAG) and all questions finish in **≈ 42 min** on a single A100【Table 1 & Table 2, p 8】 :contentReference[oaicite:1]{index=1}
 
 ---
 
