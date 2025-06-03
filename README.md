@@ -113,7 +113,31 @@ Both paths share **one query embedding**; extra overhead is three short LLM call
 
 ---
 
-## 10  Citation
+## 10  Loading the MultiHopRAG corpus
+
+We rely on the public **Hugging Face `datasets` hub** copy of *MultiHopRAG*:
+
+```python
+# Hugging Face Hub (preferred)
+from datasets import load_dataset
+
+corpus = load_dataset(
+    "yixuantt/MultiHopRAG",   # repo on HF hub
+    "corpus",                 # config name
+    split="train",            # full 2 556-question dev set
+)
+print("Passages:", len(corpus))
+````
+
+> *Manual fallback*
+> `https://github.com/yixuantt/MultiHop-RAG`
+> → clone / download → unzip → point the notebooks’ `DATA_DIR` to the local path.
+
+
+
+---
+
+## 11  Citation
 
 Please cite both the paper and this repo:
 
